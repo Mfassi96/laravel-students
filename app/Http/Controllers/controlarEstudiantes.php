@@ -30,5 +30,17 @@ class controlarEstudiantes extends Controller
 
         return redirect()->route('estudiantes.inicio')->with('success','Estudiante agregado con exito');
     }
+
+    public function show($id){
+               // Obtener solo 1 registro
+        $estudiante=Student::find($id);
+        return view('show',compact('estudiante'));
+    }
+
+    public function destroy($id){
+        $estudiante=Student::find($id);
+        $estudiante->delete();
+        return redirect()->route('estudiantes.inicio')->with('success','Estudiante eliminado con exito');
+    }
     
 }

@@ -36,8 +36,11 @@
             {{$estudiante->created_at?? 'fecha no disponible'}} 
           </td> 
           <td>
-            <a href="#" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
-            <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+          
+              <a href="{{route('editar.estudiante')}}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+            
+              <a href="{{ route('estudiante.alerta', $estudiante->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
           </td>
       </tr>
       @endforeach
