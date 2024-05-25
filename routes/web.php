@@ -7,5 +7,7 @@ Route::get('/', [controlarEstudiantes::class, 'index'])->name('estudiantes.inici
 Route::get('/crear', [controlarEstudiantes::class, 'create'])->name('estudiantes.crear');
 Route::post('/store',[controlarEstudiantes::class,'store'])->name('estudiantes.store');
 Route::get('/show/{id}',[controlarEstudiantes::class,'show'])->name('estudiante.alerta');
-// ruta editar
 Route::delete('/destroy/{id}',[controlarEstudiantes::class,'destroy'])->name('estudiante.destroy');
+// rutas para editar
+Route::get('/edit/{id}',[controlarEstudiantes::class,'edit'])->name('estudiante.edit');
+Route::put('/update/{id}',[controlarEstudiantes::class,'update'])->name('estudiante.update');

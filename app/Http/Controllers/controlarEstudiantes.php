@@ -42,5 +42,24 @@ class controlarEstudiantes extends Controller
         $estudiante->delete();
         return redirect()->route('estudiantes.inicio')->with('success','Estudiante eliminado con exito');
     }
+
+    public function edit($id)
+    {
+       $estudiante=Student::find($id);
+        return view('actualizar',compact('estudiante'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // este metodo actualiza los datos en la BD
+        $estudiante=Student::find($id); 
+        $estudiante->name=$request->post('nombre');
+        $estudiante->email=$request->post('correo_electronico');
+        $estudiante->phone=$request->post('numero_telefono');
+        $estudiante->language=$request->post('idioma');
+        $estudiante->save(); //guarda el registro en la BD
+
+        return redirect()->route('estudiantes.inicio')->with('success','Estudiante actualizado con exito ');
+    }
     
 }
